@@ -1,0 +1,53 @@
+extends layout/_html
+
+append variables
+    - var jQuery3 = false
+    - var scripts = false
+prepend links 
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous")
+block promo 
+    section.promo 
+        .container
+     
+            .promo__wrapper
+                h1.promo__title 
+                    | #{myTitle}
+                p.promo__descr Lorem ipsum dolor sit amet, consectetur adipisicing.
+                button.promo__btn click me
+            //- img.promo__img(src="https://st2.depositphotos.com/1064024/10769/i/600/depositphotos_107694484-stock-photo-little-boy.jpg" alt="Фото")
+            img.promo__img(src="./img/IMG_1.png" alt="Фото")
+                
+
+block content
+    
+    
+
+    h2.title Hello World
+
+
+    h3(style={"color": "red", "background" : "yellow", "text-transform" : "uppercase"}) hello
+
+
+    div#content.content: p Lorem ipsum dolor #[a(href="#") sit] amet consectetur, #[i: w: b adipisicing] elit. Dolorum numquam asperiores doloribus qui repellat officia? Autem ipsum corporis 
+        |
+        a(href="#" target="_blanck" rel="nofollow") animi
+        |, voluptate laudantium corrupti ipsa in repudiandae tempore, maiores deserunt sunt illo.
+    
+        div.wrapper.row#row hello #[button.btn.btn-primary(type='submit') klick]
+
+    h2: a#mylink.link(href="#")&attributes({
+        "target" : "_blanck",
+        "rel" : "nofollow"})
+
+
+    prepend scripts
+        //- if jQuery3
+        //-     scripts(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+        //- if script
+        //-     scripts(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous")
+
+//- ul 
+//-     each item in news 
+//-         li = item.name
+
+   

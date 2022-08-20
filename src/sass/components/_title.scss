@@ -1,0 +1,27 @@
+.title {
+  font-style: normal;
+  font-weight: bold;
+  &__fz14 {
+    width: 260px;
+    height: 21px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  &__fz16 {
+    width: 242px;
+    height: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+  }
+  &__fz36 {
+    width: 352px;
+    font-size: 36px;
+    line-height: 60px;
+  }
+  &__fz48 {
+    width: 580px;
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
