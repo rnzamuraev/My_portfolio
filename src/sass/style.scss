@@ -20,7 +20,7 @@
 .divider {
   width: 60px;
   height: 3px;
-  margin-top: 25px;
+  margin: 25px auto 0;
   background: $orange;
 }
 
@@ -29,6 +29,7 @@
 @import "blocks/menu";
 @import "blocks/sidepanel";
 @import "blocks/about";
+@import "blocks/resume";
 @import "components/title";
 @import "components/buttons";
 @import "components/text";
