@@ -14,3 +14,14 @@
     left: 0;
   }
 }
+.before_circle16 {
+  position: relative;
+  @include before_circle;
+  &::before {
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+  }
+}

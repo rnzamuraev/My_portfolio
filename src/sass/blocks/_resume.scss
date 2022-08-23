@@ -1,5 +1,5 @@
 .resume {
-  padding-top: 120px;
+  padding-top: 126px;
   &__subtitle {
     top: 6px;
   }
@@ -28,16 +28,16 @@
       z-index: -5;
     }
     &-title {
-      position: relative;
+      // position: relative;
       padding-left: 43px;
-      @include before_circle;
-      &::before {
-        width: 16px;
-        height: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0px;
-      }
+      // @include before_circle;
+      // &::before {
+      //   width: 16px;
+      //   height: 16px;
+      //   top: 50%;
+      //   transform: translateY(-50%);
+      //   left: 0px;
+      // }
     }
     &-wrapper {
       display: grid;
