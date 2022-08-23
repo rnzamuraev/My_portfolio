@@ -1,0 +1,16 @@
+.before_center {
+  position: relative;
+  @include before_circle;
+  &::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.before_left {
+  position: relative;
+  @include before_circle;
+  &::before {
+    top: 0;
+    left: 0;
+  }
+}

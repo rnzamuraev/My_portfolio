@@ -47,14 +47,8 @@
         margin-bottom: 0;
       }
     }
-    &-circle {
-      position: relative;
+    &-icon {
       padding: 15px 0 0 15px;
-      @include before_circle;
-      &::before {
-        top: 0px;
-        left: 0px;
-      }
     }
     &-mobile {
       padding-left: 3px;

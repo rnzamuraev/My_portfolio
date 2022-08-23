@@ -1,17 +1,5 @@
 .skills {
   padding: 120px 10px 0;
-  &__title {
-    position: relative;
-    text-align: center;
-    @include before_circle;
-    &::before {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &__subtitle {
-    text-align: center;
-  }
   &__wrapper {
     padding: 60px 10px 0;
     display: grid;
@@ -27,12 +15,7 @@
       height: 65px;
       top: 30px;
       left: 30px;
-      img {
-      }
     }
-    // &-title {
-    //   margin-top: 20px;
-    // }
     &-descr {
       margin-top: 9px;
     }
@@ -48,14 +31,8 @@
       row-gap: 20px;
     }
     &-title {
-      position: relative;
       margin-bottom: 0;
       padding: 8px 0 0 13px;
-      @include before_circle;
-      &::before {
-        top: 0;
-        left: 0;
-      }
     }
     &-percent {
       text-align: right;
