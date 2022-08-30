@@ -39,11 +39,11 @@
   }
   &__link {
     position: relative;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 36px;
-    @include before_circle2;
+    @include before_circle15;
     a {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
       color: $white;
       &:hover {
         text-decoration: none;
