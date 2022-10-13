@@ -1,9 +1,13 @@
 .skills {
-  padding: 126px 10px 0;
+  padding: 126px 0 0;
   &__wrapper {
     padding: 60px 10px 0;
     display: grid;
-    grid-template: repeat(2, 270px) / repeat(4, 270px);
+    grid-template: repeat(2, 270px) / repeat(
+        auto-fit,
+        270px
+      );
+    grid-auto-rows: 270px;
     gap: 13px;
   }
   &__item {
@@ -21,10 +25,12 @@
     }
   }
   &__ratings {
-    padding-top: 120px;
+    padding: 120px 0 0;
     display: grid;
-    grid-template: repeat(2, 70px) / repeat(3, 350px);
-    gap: 30px 45px;
+    grid-template: repeat(2, 70px) / repeat(auto-fit, 350px);
+    grid-auto-rows: 70px;
+    row-gap: 30px;
+    justify-content: space-between;
     &-item {
       display: grid;
       grid-template: 36px 14px / 1fr 50px;

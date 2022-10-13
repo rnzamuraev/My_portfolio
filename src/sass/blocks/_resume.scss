@@ -4,9 +4,9 @@
     top: 6px;
   }
   &__wrapper {
-    padding: 60px 0 0 65px;
+    padding: 60px 90px 0 65px;
     display: grid;
-    grid-template-columns: 425px 425px;
+    grid-template-columns: 1fr 1fr;
     column-gap: 136px;
     * {
       margin: 0;
@@ -28,16 +28,7 @@
       z-index: -5;
     }
     &-title {
-      // position: relative;
       padding-left: 43px;
-      // @include before_circle;
-      // &::before {
-      //   width: 16px;
-      //   height: 16px;
-      //   top: 50%;
-      //   transform: translateY(-50%);
-      //   left: 0px;
-      // }
     }
     &-wrapper {
       display: grid;
@@ -55,7 +46,7 @@
         height: 1px;
         width: 35px;
         background-color: $black;
-        top: 50%;
+        top: 18px;
         left: -35px;
         z-index: -5;
       }
@@ -64,11 +55,6 @@
         right: 0;
         bottom: 0;
       }
-      // @include before_circle;
-      // &::before {
-      //   top: 0;
-      //   left: 0;
-      // }
     }
     &-descr {
       grid-column: 1/3;

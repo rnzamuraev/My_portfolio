@@ -1,5 +1,5 @@
 .contacts {
-  padding-top: 120px;
+  padding: 120px 0 60px;
   &__wrapper {
     padding-left: 50px;
     display: grid;
@@ -33,7 +33,7 @@
   &__form {
     margin-top: 30px;
     display: grid;
-    grid-template: 45px 190px 45px / repeat(2, 280px);
+    grid-template: 45px 190px 45px / repeat(auto-fit, 280px);
     gap: 30px 25px;
   }
   &__input {
@@ -70,6 +70,7 @@
     grid-column: 1 / 3;
     display: grid;
     grid-template-columns: repeat(2, auto);
+    grid-auto-rows: 45px;
     column-gap: 35px;
   }
   &__policy {
@@ -80,6 +81,7 @@
     }
   }
   &__btn {
+    width: 220px;
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;

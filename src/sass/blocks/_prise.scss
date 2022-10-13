@@ -4,14 +4,16 @@
     margin-top: 60px;
     padding: 0 50px;
     display: grid;
-    grid-template: repeat(3, minmax(40px, auto)) / 370px 370px;
+    grid-template: repeat(3, minmax(40px, auto)) / repeat(
+        auto-fit,
+        370px
+      );
     grid-auto-rows: minmax(40px, auto);
     row-gap: 15px;
     justify-content: space-between;
   }
   &__item {
     display: grid;
-    // grid-template: auto auto / 1fr 130px;
     grid-template: auto auto / auto auto;
     &-title,
     &-descr {

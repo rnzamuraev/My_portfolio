@@ -4,9 +4,14 @@ const distPath = "./dist";
 module.exports = {
   root: distPath,
 
+  // html: {
+  //   src: `${srcPath}/html/*.html`,
+  //   watch: `${srcPath}/html/**/*.html`,
+  //   dest: distPath,
+  // },
   html: {
-    src: `${srcPath}/html/*.html`,
-    watch: `${srcPath}/html/**/*.html`,
+    src: `${srcPath}/*.html`,
+    watch: `${srcPath}/**/*.html`,
     dest: distPath,
   },
   // html: {
