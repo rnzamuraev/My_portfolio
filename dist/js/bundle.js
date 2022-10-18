@@ -85,8 +85,10 @@ var __webpack_exports__ = {};
 /*!**************************!*\
   !*** ./src/js/script.js ***!
   \**************************/
-const menu = __webpack_require__(/*! ./parts/menu.js */ "./src/js/parts/menu.js");
-const skill = __webpack_require__(/*! ./parts/skills.js */ "./src/js/parts/skills.js");
+window.addEventListener("DOMContentLoaded", () => {
+  const menu = __webpack_require__(/*! ./parts/menu.js */ "./src/js/parts/menu.js");
+  const skill = __webpack_require__(/*! ./parts/skills.js */ "./src/js/parts/skills.js");
+});
 
 }();
 /******/ })()
