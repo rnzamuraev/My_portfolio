@@ -3,8 +3,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: url("../img/photo/Background.jpg") no-repeat
-    50% / cover;
+  // background: url("../img/photo/Background.jpg") no-repeat
+  //   50% / cover;
+  background: url("../img/photo/bg.jpg") no-repeat 50% /
+    cover;
   &__subtitle {
     margin-left: 10px;
     position: relative;

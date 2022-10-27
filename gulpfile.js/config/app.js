@@ -10,9 +10,9 @@ module.exports = {
 
   pug: {
     pretty: isDev, // отвечает за сжатие фаилов - отключено
-    data: {
-      news: require("../data/news.json"),
-    },
+    // data: {
+    //   news: require("../data/news.json"),
+    // },
   },
 
   webpack: {

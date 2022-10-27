@@ -10,33 +10,35 @@
         <div class="divider"></div>
         <div class="title title_fz14 contacts__text">Любым удобным для вас способом:</div>
         <div class="contacts__social">
-          <a href="#" class="contacts__link">
+          <!-- <a href="#" class="contacts__link">
             <img src="img/icons/social/Facebook_footer.svg" alt="Facebook">
-          </a>
+          </a> -->
           <a href="#" class="contacts__link">
             <img src="img/icons/social/Telegram.svg" alt="Telegram">
           </a>
           <a href="#" class="contacts__link">
-            <img src="img/icons/social/Instagram.svg" alt="Instagram">
+            <img src="img/icons/social/WhatsApp-1.svg" alt="WhatsApp">
           </a>
+          <!-- <a href="#" class="contacts__link">
+            <img src="img/icons/social/Instagram.svg" alt="Instagram">
+          </a> -->
         </div>
         <div class="title title_fz14 contacts__text">Или оставьте ваши данные и я сам вам напишу:</div>
-        <form action="#" class="contacts__form">
+        <form action="#" class="contacts__form" id="contacts__form">
           <div class="contacts__input">
-            <input required name="name" id="name" type="text" placeholder="">
+            <input required name="name" id="name" type="text" data-reg="^[А-ЯЁ][а-яё]*$">
             <label for="name">Ваше имя</label>
           </div>
           <div class="contacts__input">
-            <input required name="emaie" id="email" type="text" placeholder="">
+            <input required name="emaie" id="email" type="email" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
             <label for="email">Ваша почта</label>
           </div>
           <div class="contacts__textarea">
-            <textarea name="text" id="text" type="text"></textarea>
-            <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+            <textarea required name="message" id="text" type="text"></textarea>
             <label for="text">Ваше сообщение</label>
           </div>
           <div class="contacts__triggers">
-            <button class="btn contacts__btn">Отправить сообщение</button>
+            <button type="submit" id="contacts__btn" class="btn contacts__btn">Отправить сообщение</button>
             <div class="contacts__policy">
               <input required type="checkbox">
               <span>Я согласен(сна) с <a href="/policy.html">политикой конфиденциальности</a></span>

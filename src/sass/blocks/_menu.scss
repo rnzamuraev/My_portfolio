@@ -25,6 +25,9 @@
   &__close {
     display: flex;
     justify-content: flex-end;
+    span {
+      cursor: pointer;
+    }
   }
   nav {
     margin-top: 87px;
