@@ -14,6 +14,11 @@ module.exports = {
     watch: `${srcPath}/**/*.html`,
     dest: distPath,
   },
+  php: {
+    src: `${srcPath}/*.php`,
+    watch: `${srcPath}/**/*.php`,
+    dest: distPath,
+  },
   // html: {
   //   src: `${srcPath}/pug/*.html`,
   //   watch: `${srcPath}/pug/**/*.html`,
@@ -54,5 +59,11 @@ module.exports = {
     src: `${srcPath}/font/*.+(eot|ttf|otf|otc|ttc|woff|woff2|svg)`,
     watch: `${srcPath}/font/**/*.+(eot|ttf|otf|otc|ttc|woff|woff2|svg)`,
     dest: `${distPath}/font`,
+  },
+
+  mail: {
+    src: `${srcPath}/PHPMailer/**/*.*`,
+    watch: `${srcPath}/PHPMailer/**/*.*`,
+    dest: `${distPath}/PHPMailer`,
   },
 };

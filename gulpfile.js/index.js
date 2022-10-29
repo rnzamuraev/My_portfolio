@@ -16,6 +16,8 @@ const scss = require("./task/scss.js");
 const js = require("./task/js.js");
 const img = require("./task/img.js");
 const font = require("./task/font.js");
+const mail = require("./task/mail.js");
+const sendMail = require("./task/send_mail.js");
 
 //Сервер
 const server = () => {
@@ -43,12 +45,16 @@ const watcher = () => {
     "all",
     browserSync.reload
   );
+  watch(path.php.watch, sendMail).on(
+    "all",
+    browserSync.reload
+  );
 };
 
 const build = series(
   clear,
   // parallel(pug, scss, js, img, font)
-  parallel(html, scss, js, img, font)
+  parallel(html, scss, js, img, font, sendMail, mail)
 );
 
 const dev = series(build, parallel(watcher, server));
