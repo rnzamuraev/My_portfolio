@@ -14,37 +14,49 @@
             <img src="img/icons/social/Facebook_footer.svg" alt="Facebook">
           </a> -->
           <a href="#" class="contacts__link">
-            <img src="img/icons/social/Telegram.svg" alt="Telegram">
+            <img src="img/icons/social/Telegram_footer1.svg" alt="Telegram">
           </a>
           <a href="#" class="contacts__link">
-            <img src="img/icons/social/WhatsApp-1.svg" alt="WhatsApp">
+            <img src="img/icons/social/WhatsApp_footer.svg" alt="WhatsApp">
           </a>
           <!-- <a href="#" class="contacts__link">
             <img src="img/icons/social/Instagram.svg" alt="Instagram">
           </a> -->
         </div>
+        <!-- action="send_mail.php" (method="POST" = method="post") -->
         <div class="title title_fz14 contacts__text">Или оставьте ваши данные и я сам вам напишу:</div>
-        <form action="send_mail.php" name="form" method="POST" class="contacts__form" id="contacts__form">
+        <form action="#" enctype="multipart/form-data" type="submit" name="contacts-form" class="contacts__form"
+          id="contacts__form">
           <div class="contacts__input">
-            <input required name="name" id="name" type="text" data-reg="^[А-ЯЁ][а-яё]*$">
-            <label for="name">Ваше имя</label>
+            <input data-validate-field="name" id="name" required name="name" type="text" data-reg="^[А-ЯЁ][а-яё]*$">
+            <label class="contacts__label" for="name">Ваше имя *</label>
+            <span></span>
           </div>
           <div class="contacts__input">
-            <input required name="emaie" id="email" type="email" data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
-            <label for="email">Ваша почта</label>
+            <input data-validate-field="email" id="email" required name="email" type="email"
+              data-reg="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$">
+            <label class="contacts__label" for="email">Ваша почта *</label>
+            <span></span>
           </div>
           <div class="contacts__textarea">
             <textarea required name="message" id="text" type="text"></textarea>
-            <label for="text">Ваше сообщение</label>
+            <label for="text">Ваше сообщение *</label>
           </div>
           <div class="contacts__triggers">
-            <button type="submit" id="contacts__btn" class="btn contacts__btn">Отправить сообщение</button>
+            <button id="contacts__btn" class="btn contacts__btn">Отправить сообщение</button>
             <div class="contacts__policy">
               <input required type="checkbox">
               <span>Я согласен(сна) с <a href="/policy.html">политикой конфиденциальности</a></span>
             </div>
           </div>
         </form>
+      </div>
+    </div>
+    <div class="contacts__message">
+      <div class="overlay"></div>
+      <div class="contacts__message-wrapper">
+        <h3 class="contact__message-title title_fz16">Данные отправлены</h3>
+        <span class="contacts__message-close"><img src="img/icons/close-.svg" alt="close"></span>
       </div>
     </div>
   </div>

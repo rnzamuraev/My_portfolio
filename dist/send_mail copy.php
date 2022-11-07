@@ -41,7 +41,7 @@ try {
 
   // Текст письма
   $body = ' 
-    <h3>Пользователь оставил данные</h3> <br/> 
+    <h1>Пользователь оставил данные</h1> <br/> 
     Имя: ' . $name . ' <br/> 
     E-mail: ' . $email . ' <br/> 
     Сообщение: ' . $message . '';
@@ -49,14 +49,23 @@ try {
   $mail->Subject = $theme;
   $mail->Body = $body;
 
+  // if (!$mail->send()) {
+  //   $message = "Сообщение не отправлено";
+  // } else {
+  //   $message = "Данные отправлены!";
+  // }
+
   $mail->send(); 
 
-  echo $message = "Данные отправлены!";
+  // echo $message = "Данные отправлены!";
 }
 catch (Exception $e) {
   // echo $message = "Сообщение не отправлено. Причина ошибки: {$mail->ErrorInfo}";
   $status = "Сообщение не отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
 
+$response = ["message" => $message];
+header("Сontent-type: application/json");
 
+echo json_encode($response);
 

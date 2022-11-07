@@ -1,31 +1,71 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/parts/calcScroll.js":
+/*!************************************!*\
+  !*** ./src/js/parts/calcScroll.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function calcScroll() {
+  const div = document.createElement("div");
+  div.style.width = "100%";
+  div.style.height = "100px";
+  div.style.overflowY = "scroll";
+  div.style.visibility = "hidden";
+  document.body.appendChild(div);
+
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+
+  div.remove();
+  return scrollWidth;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (calcScroll);
+
+
+/***/ }),
+
 /***/ "./src/js/parts/form.js":
 /*!******************************!*\
   !*** ./src/js/parts/form.js ***!
   \******************************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/js/parts/calcScroll.js");
+
 
 const form = document.querySelector("#contacts__form");
-const button = document.querySelector("#contacts__btn");
+// const button = form.querySelector("#contacts__btn");
+const messageSent = document.querySelector(
+  ".contacts__message"
+);
+const overflow = document.body;
+const scrolling = (0,_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+const messageTitle = document.querySelector(
+  ".contact__message-title"
+);
+const closeMessageSent = document.querySelector(
+  ".contacts__message-close"
+);
 
 const inputArr = form.querySelectorAll("input");
 const validInputArr = [];
-// console.log(validInputArr);
 
 inputArr.forEach((input) => {
   if (input.hasAttribute("data-reg")) {
     input.setAttribute("is-valid", "0");
     validInputArr.push(input);
-    input.style.outline = "none";
   }
 });
-// console.log(validInputArr);
 
 form.addEventListener("input", inputHandler);
 
-button.addEventListener("click", buttonHandler);
+form.addEventListener("submit", formCheck);
 
 function inputHandler({ target }) {
   // проверяем поле input с необходимым атрибутом
@@ -38,48 +78,85 @@ function inputCheck(elem) {
   const inputValue = elem.value;
   const inputReg = elem.getAttribute("data-reg");
   const reg = new RegExp(inputReg);
+
+  const label = elem.nextElementSibling;
+  const span = label.nextElementSibling;
+
   if (reg.test(inputValue)) {
-    elem.style.border = "solid 3px rgb(0, 290, 0)";
-    // elem.style.outline = "none";
     elem.setAttribute("is-valid", "1");
-    // elem.style.border = "solid 3px ffa501";
-    // elem.style.outline = "solid 2px ffa501";
+    span.innerHTML = "";
   } else {
-    elem.style.border = "solid 3px rgb(250, 0, 0)";
+    span.innerHTML = "Поле заполнено не верно";
     elem.setAttribute("is-valid", "0");
+    if (inputValue === "") {
+      span.innerHTML = "";
+    }
   }
 }
 
-function buttonHandler(e) {
+function formCheck(e) {
+  e.preventDefault();
+
   const isAllValid = [];
-  // console.log(isAllValid);
 
   validInputArr.forEach((input) => {
-    // if ("is-valid" === true) {
-    // }
     isAllValid.push(input.getAttribute("is-valid"));
-    console.log(isAllValid);
   });
 
-  // const isValid = isAllValid.reduce((acc, current) => {
-  //   return acc && current;
-  // });
   const isValid = isAllValid.reduce((acc, current) => {
     return acc * current;
   });
-
   console.log(isValid);
-  // function sum() {
-  // isAllValid.forEach((elem) => {
-  //   if (elem === 0) {
-  //   }
-  //   let a = elem * 1;
-  // });
-  // }
 
-  if (!Boolean("isValid")) {
-    e.preventDefault();
+  if (Boolean(Number(isValid))) {
+    formSubmit();
+    return;
   }
+}
+
+async function formSubmit() {
+  let data = formData(form);
+  console.log(data);
+
+  let xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        console.log("Отправлено");
+        formReset();
+        showMessage("Данные отправлены!");
+      }
+    }
+  };
+
+  // xhr.open("POST", "mail.php", true);
+  xhr.open("POST", "send_mail.php", true);
+  xhr.send(data);
+}
+
+function formData(form) {
+  return new FormData(form);
+}
+
+function formReset() {
+  form.reset();
+}
+
+// function showMessage(message) {
+function showMessage() {
+  messageSent.style.display = "flex";
+  overflow.style.overflow = "hidden";
+  overflow.style.paddingRight = `${scrolling}px`;
+  // messageTitle.innerHTML = message;
+}
+
+closeMessageSent.addEventListener("click", closeMessage);
+
+function closeMessage() {
+  messageSent.style.display = "none";
+  overflow.style.overflow = "";
+  overflow.style.paddingRight = `0px`;
 }
 
 
@@ -89,19 +166,30 @@ function buttonHandler(e) {
 /*!******************************!*\
   !*** ./src/js/parts/menu.js ***!
   \******************************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/js/parts/calcScroll.js");
+
 
 const hamburger = document.querySelector(".hamburger"),
   menu = document.querySelector(".menu"),
   closeElem = document.querySelector(".menu__close"),
-  menuLink = document.querySelectorAll(".menu__link");
+  menuLink = document.querySelectorAll(".menu__link"),
+  overflow = document.body,
+  scrolling = (0,_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 hamburger.addEventListener("click", () => {
   menu.classList.add("active");
+  overflow.style.overflow = "hidden";
+  overflow.style.paddingRight = `${scrolling}px`;
 });
 
 closeElem.addEventListener("click", () => {
   menu.classList.remove("active");
+  overflow.style.overflow = "";
+  overflow.style.paddingRight = `0px`;
 });
 
 // menuLink.addEventListener("click", () => {
@@ -110,6 +198,8 @@ closeElem.addEventListener("click", () => {
 menuLink.forEach((link) => {
   link.addEventListener("click", () => {
     menu.classList.remove("active");
+    overflow.style.overflow = "";
+    overflow.style.paddingRight = `0px`;
   });
 });
 
@@ -161,6 +251,18 @@ percents.forEach((item, i) => {
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
